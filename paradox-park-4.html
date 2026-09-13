@@ -185,17 +185,14 @@
   .thrill span{width:14px;height:4px;border-radius:2px;background:var(--line);}
   .thrill span.on{background:currentColor;}
 
-  /* QUANTUM zone specifics */
   #quantum .icon-tile{background:rgba(63,211,214,0.15);color:var(--quantum-a);}
   #quantum .thrill{color:var(--quantum-a);}
 
-  /* SILK zone specifics */
   #silk{background:var(--bg-3);}
   #silk .icon-tile{background:rgba(225,75,63,0.15);color:var(--silk-a);}
   #silk .thrill{color:var(--silk-a);}
   #silk .card{background:#241F25;}
 
-  /* BLACKOUT zone specifics */
   #blackout{
     background:var(--black-bg);
     border-bottom:none;
@@ -206,7 +203,6 @@
   #blackout .thrill{color:var(--black-a);}
   #blackout h2{color:var(--black-a);}
 
-  /* TIDAL REACH zone specifics */
   #tidal{background:var(--tidal-bg);}
   #tidal .icon-tile{background:rgba(63,168,214,0.18);color:var(--tidal-a);}
   #tidal .thrill{color:var(--tidal-a);}
@@ -214,7 +210,6 @@
   #tidal h2{color:var(--tidal-a);}
   #tidal .bg-video-wrap::after{ background:linear-gradient(180deg, var(--tidal-bg) 0%, rgba(15,37,48,0.75) 40%, var(--tidal-bg) 100%); }
 
-  /* HOURS & EVENTS */
   .hours{padding:76px 0;}
   .hours-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;margin-top:36px;}
   @media(max-width:800px){ .hours-grid{grid-template-columns:1fr;} }
@@ -231,7 +226,6 @@
   .event-card h3{font-size:17px;text-transform:none;letter-spacing:0;margin-top:4px;}
   .event-card p{font-size:13px;color:var(--ink-dim);margin-top:4px;}
 
-  /* FAQ */
   .faq{padding:76px 0;background:var(--bg-2);border-top:1px solid var(--line);}
   .faq-list{margin-top:36px;max-width:760px;}
   .faq-item{border-bottom:1px solid var(--line);padding:18px 0;}
@@ -244,7 +238,6 @@
   .faq-item[open] summary::after{content:"−";}
   .faq-item p{font-size:14px;color:var(--ink-dim);margin-top:12px;max-width:600px;}
 
-  /* REVIEWS */
   .reviews{padding:76px 0;}
   .reviews .sync-note{
     display:inline-flex;align-items:center;gap:8px;margin-top:8px;
@@ -289,25 +282,6 @@
   .review-card .r-time{font-size:11px;color:var(--ink-dim);margin-top:8px;font-family:'IBM Plex Mono',monospace;}
   .review-empty{font-size:13px;color:var(--ink-dim);padding:20px 0;}
 
-  /* ACCESS LOCK */
-  #lock-screen{
-    position:fixed;inset:0;z-index:200;background:var(--bg);
-    display:flex;align-items:center;justify-content:center;padding:24px;
-  }
-  #lock-screen.hidden{display:none;}
-  .lock-box{max-width:340px;width:100%;text-align:center;}
-  .lock-box .mark{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:30px;margin-bottom:6px;}
-  .lock-box p{font-size:13px;color:var(--ink-dim);margin-bottom:22px;}
-  .lock-box input{
-    width:100%;padding:13px 14px;border-radius:8px;border:1px solid var(--line);
-    background:var(--bg-2);color:var(--ink);font-size:16px;text-align:center;letter-spacing:.1em;
-    font-family:'IBM Plex Mono',monospace;margin-bottom:12px;
-  }
-  .lock-box input:focus{outline:none;border-color:var(--quantum-a);}
-  .lock-box .lock-err{color:#F07272;font-size:12px;margin-top:-4px;margin-bottom:12px;display:none;}
-  .lock-box .lock-err.show{display:block;}
-  #site-content.hidden{display:none;}
-
   .signature{
     margin-top:36px;
     border:1px solid rgba(215,226,60,0.3);
@@ -322,7 +296,6 @@
   .signature video{width:100%;border-radius:10px;border:1px solid rgba(215,226,60,0.2);}
   @media(max-width:720px){ .signature{grid-template-columns:1fr;} }
 
-  /* MARKETPLACE */
   .market{padding:76px 0;}
   .market-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -345,7 +318,6 @@
   }
   .map-strip .eyebrow{margin-bottom:14px;}
 
-  /* TICKETS */
   .tickets{padding:76px 0;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .ticket-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:36px;}
   .ticket-card{
@@ -390,7 +362,6 @@
     font-size:13px;color:var(--ink-dim);
   }
 
-  /* CHECKOUT MODAL */
   .modal-overlay{
     position:fixed;inset:0;background:rgba(8,8,10,0.72);
     display:none;align-items:center;justify-content:center;z-index:100;padding:20px;
@@ -437,28 +408,11 @@
 </head>
 <body>
 
-<div id="lock-screen">
-  <div class="lock-box">
-    <p class="mark">PARADOX PARK</p>
-
-    <div id="lock-step-email">
-      <p>Private site. Enter your email — if it's on the guest list, we'll send you a one-time sign-in link.</p>
-      <input type="email" id="lock-email-input" placeholder="you@email.com" autocomplete="off">
-      <div class="lock-err" id="lock-err">Something went wrong — try again.</div>
-      <button class="btn-primary" style="width:100%;" onclick="window.sendMagicLink()">Send sign-in link</button>
-    </div>
-
-    <div id="lock-step-sent" style="display:none;">
-      <p>Check <strong id="sent-email-label"></strong> for a sign-in link, then open it on this device.</p>
-    </div>
-
-    <div id="lock-step-checking" style="display:none;">
-      <p>Signing you in…</p>
-    </div>
-  </div>
+<div style="background:#F2C94C;color:#1a1a1a;text-align:center;padding:10px 16px;font-size:13px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;">
+  This is for a school project — NOT a real park or website!
 </div>
 
-<div id="site-content" class="hidden">
+<div id="site-content">
 
 <nav>
   <div class="navrow">
@@ -473,8 +427,7 @@
       <a href="#reviews">Reviews</a>
       <a href="#tickets">Tickets</a>
     </div>
-    <button class="ticket-btn" onclick="document.getElementById('tickets').scrollIntoView()" style="margin-right:8px;">Get tickets</button>
-    <button class="btn-ghost" style="padding:9px 14px;font-size:13px;" onclick="window.signOutOfSite()">Sign out</button>
+    <button class="ticket-btn" onclick="document.getElementById('tickets').scrollIntoView()">Get tickets</button>
   </div>
 </nav>
 
@@ -500,7 +453,6 @@
   </div>
 </header>
 
-<!-- QUANTUM QUARTER -->
 <section class="zone" id="quantum">
   <div class="wrap">
     <div class="zone-head">
@@ -618,7 +570,6 @@
   </div>
 </section>
 
-<!-- SILK CITY -->
 <section class="zone" id="silk">
   <div class="bg-video-wrap">
     <video autoplay muted loop playsinline poster="https://assets.mixkit.co/videos/30874/30874-thumb-360-0.jpg">
@@ -728,7 +679,6 @@
   </div>
 </section>
 
-<!-- TIDAL REACH -->
 <section class="zone" id="tidal">
   <div class="bg-video-wrap">
     <video autoplay muted loop playsinline poster="https://assets.mixkit.co/videos/4092/4092-thumb-360-0.jpg">
@@ -843,7 +793,6 @@
   </div>
 </section>
 
-<!-- BLACKOUT SECTOR -->
 <section class="zone" id="blackout">
   <div class="bg-video-wrap">
     <video autoplay muted loop playsinline poster="https://assets.mixkit.co/videos/32901/32901-thumb-360-0.jpg">
@@ -970,7 +919,6 @@
   </div>
 </section>
 
-<!-- MARKETPLACE -->
 <section class="market" id="market">
   <div class="wrap">
     <p class="eyebrow">PARK-WIDE</p>
@@ -1031,7 +979,6 @@
   </div>
 </section>
 
-<!-- HOURS & EVENTS -->
 <section class="hours" id="hours">
   <div class="wrap">
     <p class="eyebrow">PLANNING</p>
@@ -1069,7 +1016,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap">
     <p class="eyebrow">GOOD TO KNOW</p>
@@ -1103,7 +1049,6 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="wrap">
     <p class="eyebrow">GUEST REVIEWS</p>
@@ -1148,7 +1093,6 @@
   </div>
 </section>
 
-<!-- TICKETS -->
 <section class="tickets" id="tickets">
   <div class="wrap">
     <p class="eyebrow">TICKETS</p>
@@ -1236,10 +1180,8 @@
   </div>
 </footer>
 
-<!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal-content">
-    <!-- filled by JS -->
   </div>
 </div>
 
@@ -1379,10 +1321,6 @@
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
   import {
-    getAuth, sendSignInLinkToEmail, isSignInWithEmailLink,
-    signInWithEmailLink, onAuthStateChanged, signOut
-  } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-  import {
     getFirestore, collection, addDoc, onSnapshot, query, orderBy
   } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
@@ -1396,91 +1334,9 @@
   };
 
   const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
   const db = getFirestore(app);
 
-  /* ---------- AUTH / LOCK SCREEN ---------- */
-
-  function showStep(step){
-    document.getElementById('lock-step-email').style.display = step === 'email' ? 'block' : 'none';
-    document.getElementById('lock-step-sent').style.display = step === 'sent' ? 'block' : 'none';
-    document.getElementById('lock-step-checking').style.display = step === 'checking' ? 'block' : 'none';
-  }
-
-  window.sendMagicLink = async function(){
-    const email = document.getElementById('lock-email-input').value.trim();
-    const err = document.getElementById('lock-err');
-    err.classList.remove('show');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      err.textContent = 'Enter a valid email.';
-      err.classList.add('show');
-      return;
-    }
-    const actionCodeSettings = {
-      url: window.location.href.split('#')[0],
-      handleCodeInApp: true
-    };
-    try {
-      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
-      window.localStorage.setItem('paradoxEmailForSignIn', email);
-      document.getElementById('sent-email-label').textContent = email;
-      showStep('sent');
-    } catch (e){
-      err.textContent = 'Could not send link. Check the email and try again.';
-      err.classList.add('show');
-    }
-  };
-
-  document.getElementById('lock-email-input').addEventListener('keydown', function(e){
-    if (e.key === 'Enter') window.sendMagicLink();
-  });
-
-  window.signOutOfSite = async function(){
-    await signOut(auth);
-    window.location.href = window.location.href.split('#')[0].split('?')[0];
-  };
-
-  function unlockSite(){
-    document.getElementById('lock-screen').classList.add('hidden');
-    document.getElementById('site-content').classList.remove('hidden');
-  }
-
-  function lockSite(){
-    document.getElementById('site-content').classList.add('hidden');
-    document.getElementById('lock-screen').classList.remove('hidden');
-    showStep('email');
-  }
-
-  // Handle arriving via the emailed sign-in link
-  if (isSignInWithEmailLink(auth, window.location.href)){
-    showStep('checking');
-    let email = window.localStorage.getItem('paradoxEmailForSignIn');
-    if (!email){
-      email = window.prompt('Confirm the email you signed in with:');
-    }
-    signInWithEmailLink(auth, email, window.location.href)
-      .then(() => {
-        window.localStorage.removeItem('paradoxEmailForSignIn');
-        history.replaceState(null, '', window.location.href.split('?')[0]);
-      })
-      .catch(() => {
-        showStep('email');
-        const err = document.getElementById('lock-err');
-        err.textContent = "That link didn't work — request a new one.";
-        err.classList.add('show');
-      });
-  }
-
-  onAuthStateChanged(auth, (user) => {
-    if (user){
-      unlockSite();
-      startReviewsListener();
-    } else {
-      lockSite();
-    }
-  });
-
-  /* ---------- REVIEWS ---------- */
+  startReviewsListener();
 
   const REVIEW_TARGETS = [
     { group: "Quantum Quarter", items: ["Quantum Quarter (zone overall)","Singularity","Collider VR","Entropy","Wavelength","Gravity Well (dining)","The Particle Shop","Halflife Vending"] },
@@ -1538,7 +1394,7 @@
       label.textContent = 'Live — synced with everyone who has access';
     } else {
       dot.classList.add('offline');
-      label.textContent = "Couldn't load reviews — check your email is on the access list";
+      label.textContent = "Couldn't load reviews right now";
     }
   }
 
@@ -1605,4 +1461,4 @@
 </div>
 
 </body>
-</html>
+  </html>
